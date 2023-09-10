@@ -34,18 +34,6 @@
       messenger.addErrorMessage('No text');
       return;
     }
-    if (text.length >= 4300) {
-      messenger.addErrorMessage(
-        `Too much text, ${text.length}/4300 characters`
-      );
-      return;
-    }
-    if (text.length <= 200) {
-      messenger.addErrorMessage(
-        `Too little text ${text.length}/200 characters`
-      );
-      return;
-    }
     messenger.addMessage('Auto cutting...');
 
     arguflowAutoCut(text)
