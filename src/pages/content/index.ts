@@ -264,8 +264,12 @@ function getDate() {
       .autoCut(selectedText)
       .then((response) => {
         console.log("AutoCut response: ", response);
-        const html = response.completion;
-        console.log("html: ", html);
+        const html = response.completion
+          .replaceAll(
+            "<u>",
+            '<span style="background-color: yellow; font-weight: bold;">'
+          )
+          .replaceAll("</u>", "</span>");
         const htmlNode = document.createElement("div");
         htmlNode.innerHTML = html;
 
